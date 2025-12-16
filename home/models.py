@@ -37,6 +37,8 @@ class Book(models.Model):
 
     @property
     def is_in_stock(self):
+        if self.stock is None:
+            return False
         return self.stock > 0
 
     def decrease_stock(self, quantity):
