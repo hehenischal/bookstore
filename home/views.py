@@ -1,5 +1,15 @@
 from django.shortcuts import render
-
+from .models import Genre,Book,Publication,Author
 # Create your views here.
 def index(request):
-    return render(request, 'index.html')
+    genres = Genre.objects.all()
+    books = Book.objects.all()
+    publications = Publication.objects.all()
+    authors = Author.objects.all()
+    context = {
+        'genres': genres,
+        'books': books,
+        'publications': publications,
+        'authors': authors
+    }
+    return render(request, 'index.html',context)
