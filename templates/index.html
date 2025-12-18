@@ -85,23 +85,22 @@
 
 					<div class="product-list" data-aos="fade-up">
 						<div class="row">
-
-							<div class="col-md-3">
+							{% for b in features %}
+							  <div class="col-md-3">
 								<div class="product-item">
 									<figure class="product-style">
-										<img src="{% static 'images/product-item1.jpg' %}" alt="Books" class="product-item">
-										<button type="button" class="add-to-cart" data-product-tile="add-to-cart">Add to
-											Cart</button>
+										<img src="{{b.cover_image.url}}" alt="Books" class="product-item">
+										<button type="button" class="add-to-cart" data-product-tile="add-to-cart">Buy now</button>
 									</figure>
 									<figcaption>
-										<h3>Simple way of piece life</h3>
-										<span>Armor Ramsey</span>
-										<div class="item-price">$ 40.00</div>
+										<h3>{{b.title}}</h3>
+										<span>{{b.author.name}}</span>
+										<p>Genre: <span>{{b.genre.name}}</span></p>
+										<div class="item-price">${{b.price}}</div>
 									</figcaption>
 								</div>
 							</div>
-
-
+							{% endfor %}
 						</div><!--ft-books-slider-->
 					</div><!--grid-->
 
@@ -197,8 +196,9 @@
 												Cart</button>
 										</figure>
 										<figcaption>
-											<h3>{{b.name}}</h3>
+											<h3>{{b.title}}</h3>
 											<span>{{b.author.name}}</span>
+											<p>Genre: <span>{{b.genre.name}}</span></p>
 											<div class="item-price">${{b.price}}</div>
 										</figcaption>
 									</div>
@@ -221,8 +221,9 @@
 												Cart</button>
 										</figure>
 										<figcaption>
-											<h3>{{b.name}}</h3>
+											<h3>{{b.title}}</h3>
 											<span>{{b.author.name}}</span>
+											<p>Genre: <span>{{b.genre.name}}</span></p>
 											<div class="item-price">${{b.price}}</div>
 										</figcaption>
 									</div>
